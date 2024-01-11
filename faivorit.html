@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faivorit.css">
+    <title>Favorite</title>
+</head>
+<body>
+    <nav class="nav-links">
+
+        <li><a href="index.html">home</a></li>
+        <li class="center"><a href="search.html">search</a></li>
+        <li class="upward"><a href="single.html">single movie</a></li>
+        <li class="forward"><a href="about.html">about</a></li>
+        <li class="faivorit"><a href="faivorit.html">my faivorit</a></li>
+    </nav>
+
+
+     <h1>My Favorite Movies</h1>
+
+     <ul id="favoritesList" class="movies-grid">
+      
+     </ul>
+     <button id="clear">clear</button>
+
+     <script>
+        
+const favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+const favoritesList = document.getElementById('favoritesList');
+
+favoriteMovies.forEach(movie => {
+    const listItem = document.createElement('li');
+    const movieTitle = document.createElement('span');
+    movieTitle.textContent = movie.title;
+
+    const posterUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    const img = document.createElement('img');
+    img.src = posterUrl;
+    img.alt = movie.title;
+    img.className = 'movie-poster';
+
+    const posterContainer = document.createElement('div');
+    posterContainer.className = 'movie-poster-container';
+    posterContainer.appendChild(img);
+
+    listItem.appendChild(posterContainer);
+    listItem.appendChild(movieTitle);
+    favoritesList.appendChild(listItem);
+
+    const clear = document.getElementById('clear');
+    clear.addEventListener('click', () => {
+        localStorage.removeItem('favoriteMovies');
+        location.reload();
+    });
+});
+
+
+    </script>
+</body>
+</html>

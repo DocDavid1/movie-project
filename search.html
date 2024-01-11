@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav-links">
+        <li><a href="index.html">home</a></li>
+        <li class="center"><a href="search.html">search</a></li>
+        <li class="upward"><a href="single.html">single movie</a></li>
+        <li class="forward"><a href="about.html">about</a></li>
+        <li class="faivorit"><a href="faivorit.html">my faivorit</a></li>
+    </nav>
+    <h1 id="Hforsearch">TYPE YOUR SEARCH HERE</h1>
+    <div>
+        <input type="text" id="lmovie" name="lname" value="type here" ><br><br>
+        <button id="searchBtn" onclick="fetchAndDisplayMovies()">SEARCH</button>
+    </div>
+    <div id="posterContainer">
+       
+    </div>
+    <script src="search.js"></script>
+</body>
+</html>
